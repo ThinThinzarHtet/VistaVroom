@@ -16,6 +16,8 @@ function App() {
     <>
       <Navigation />
       <Hero />
+      <RentingProcess />
+      <CarsForRental />
     </>
   );
 }
