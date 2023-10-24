@@ -1,7 +1,21 @@
-import React from "react";
+import BlogPost from "./BlogPost";
+import CarCard from "./CarCard";
+import LabelInput from "./LabelInput";
+import Navigation from "./Navigation";
+import PricingCard from "./PricingCard";
+import PrimaryButton from "./PrimaryButton";
+import ServiceCard from "./ServiceCard";
+import Step from "./Step";
+import Testimonial from "./Testimonial";
 
-const index = () => {
-  return <div>index</div>;
+export {
+  BlogPost,
+  CarCard,
+  LabelInput,
+  Navigation,
+  PricingCard,
+  PrimaryButton,
+  ServiceCard,
+  Step,
+  Testimonial,
 };
-
-export default index;

@@ -18,13 +18,11 @@ const Navigation = () => {
   const openDrawer = () => {
     document.body.style.overflowY = "hidden";
     setIsOpen(true);
-    console.log(document);
   };
 
   const closeDrawer = () => {
     document.body.style.overflowY = "scroll";
     setIsOpen(false);
-    console.log(document);
   };
 
   return (
@@ -47,11 +45,6 @@ const Navigation = () => {
                 {navItem}
               </li>
             ))}
-            {/* <li className="link border-primary-green">Home</li>
-            <li className="link border-transparent">Booking</li>
-            <li className="link border-transparent">About</li>
-            <li className="link border-transparent">Services</li>
-            <li className="link border-transparent">Contact</li> */}
           </ul>
         </div>
 
@@ -63,7 +56,7 @@ const Navigation = () => {
 
         {/* sidebar for mobile */}
         <Drawer
-          className="px-6 py-12 rounded-r-lg flex flex-col gap-16 shadow-2xl shadow-gray-900 backdrop-blur-sm"
+          className="px-6 py-12 rounded-r-lg flex flex-col gap-16 shadow-2xl shadow-gray-900 z-50"
           open={isOpen}
           onClose={closeDrawer}
         >
