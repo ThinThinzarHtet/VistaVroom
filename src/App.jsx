@@ -20,6 +20,7 @@ function App() {
       <CarsForRental />
       <Testimonials />
       <Pricing />
+      <Services />
     </>
   );
 }
