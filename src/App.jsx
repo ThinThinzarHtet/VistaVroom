@@ -21,6 +21,7 @@ function App() {
       <Testimonials />
       <Pricing />
       <Services />
+      <FAQ />
     </>
   );
 }
