@@ -22,6 +22,9 @@ function App() {
       <Pricing />
       <Services />
       <FAQ />
+      <Posts />
+      <Contact />
+      <Footer />
     </>
   );
 }

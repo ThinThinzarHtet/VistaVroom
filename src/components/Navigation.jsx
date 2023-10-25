@@ -29,8 +29,8 @@ const Navigation = () => {
     <div>
       <div className="wrapper flex justify-between items-center py-5">
         <p>
-          <span className="text-primary-green logo_text">Vista</span>
-          <span className="text-primary-black logo_text">Vroom</span>
+          <span className="text-primary-green logo_text uppercase">Vista</span>
+          <span className="text-primary-black logo_text uppercase">Vroom</span>
         </p>
         <div className="hidden lg:block">
           <ul className="flex items-center gap-10">
