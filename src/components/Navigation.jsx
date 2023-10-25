@@ -28,7 +28,6 @@ const Navigation = () => {
   return (
     <div>
       <div className="wrapper flex justify-between items-center py-5">
-        {/* <img src={logo} alt="logo" /> */}
         <p>
           <span className="text-primary-green logo_text">Vista</span>
           <span className="text-primary-black logo_text">Vroom</span>
@@ -56,7 +55,7 @@ const Navigation = () => {
 
         {/* sidebar for mobile */}
         <Drawer
-          className="px-6 py-12 rounded-r-lg flex flex-col gap-16 shadow-2xl shadow-gray-900 z-50"
+          className="px-6 py-12 rounded-r-lg flex flex-col gap-16"
           open={isOpen}
           onClose={closeDrawer}
         >

@@ -18,6 +18,8 @@ function App() {
       <Hero />
       <RentingProcess />
       <CarsForRental />
+      <Testimonials />
+      <Pricing />
     </>
   );
 }
