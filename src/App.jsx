@@ -1,4 +1,5 @@
 import Navigation from "./components/Navigation";
+import { useRef } from "react";
 import {
   Hero,
   CarsForRental,

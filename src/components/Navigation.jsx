@@ -3,15 +3,11 @@
 import { TbMenuDeep } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 
-import {
-  Drawer,
-  Typography,
-  IconButton,
-  Button,
-} from "@material-tailwind/react";
+import { Drawer } from "@material-tailwind/react";
 import { useState } from "react";
 
 const navItems = ["Home", "Booking", "About", "Services", "Contact"];
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,8 +21,9 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  // sticky top-0 z-20 bg-white
   return (
-    <div>
+    <div className="sticky top-0 z-20 bg-white">
       <div className="wrapper flex justify-between items-center py-5">
         <p>
           <span className="text-primary-green logo_text uppercase">Vista</span>
@@ -48,16 +45,20 @@ const Navigation = () => {
         </div>
 
         {/* mobile menu icon */}
-        <TbMenuDeep
-          className="block lg:hidden cursor-pointer h-6 w-6"
-          onClick={openDrawer}
-        />
+        {!isOpen && (
+          <TbMenuDeep
+            className="block lg:hidden cursor-pointer h-6 w-6"
+            onClick={openDrawer}
+          />
+        )}
 
         {/* sidebar for mobile */}
         <Drawer
-          className="px-6 py-12 rounded-r-lg flex flex-col gap-16"
+          overlay={false}
+          className="px-6 py-12 rounded-r-lg flex flex-col gap-16 drop-shadow-lg "
           open={isOpen}
           onClose={closeDrawer}
+          placement="right"
         >
           <IoClose
             className="absolute right-4 top-4 h-5 w-5 cursor-pointer"

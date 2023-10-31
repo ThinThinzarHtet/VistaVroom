@@ -1,12 +1,19 @@
-import logo from "../assets/logo.svg";
-import facebookIcon from "../assets/facebook-icon.svg";
-import twitterIcon from "../assets/twitter-icon.svg";
-import instagramIcon from "../assets/instagram-icon.svg";
-import linkedinIcon from "../assets/linkedin-icon.svg";
-import youtubeIcon from "../assets/youtube-icon.svg";
-
+import {
+  BiLogoFacebook,
+  BiLogoLinkedin,
+  BiLogoInstagram,
+  BiLogoTwitter,
+  BiLogoYoutube,
+} from "react-icons/bi";
 const navItems = ["Home", "Booking", "About", "Services", "Contact"];
 
+const logoArr = [
+  <BiLogoFacebook fontSize={24} />,
+  <BiLogoLinkedin fontSize={24} />,
+  <BiLogoInstagram fontSize={24} />,
+  <BiLogoTwitter fontSize={24} />,
+  <BiLogoYoutube fontSize={24} />,
+];
 const Footer = () => {
   return (
     <>
@@ -27,31 +34,14 @@ const Footer = () => {
               inspiration.
             </p>
             <div className="flex items-center gap-[18px] justify-center lg:justify-start">
-              <img
-                src={facebookIcon}
-                alt="facebookIcon"
-                className="cursor-pointer"
-              />
-              <img
-                src={twitterIcon}
-                alt="twitterIcon"
-                className="cursor-pointer"
-              />
-              <img
-                src={instagramIcon}
-                alt="instagramIcon"
-                className="cursor-pointer"
-              />
-              <img
-                src={linkedinIcon}
-                alt="linkedinIcon"
-                className="cursor-pointer"
-              />
-              <img
-                src={youtubeIcon}
-                alt="youtubeIcon"
-                className="cursor-pointer"
-              />
+              {logoArr.map((logo, index) => (
+                <span
+                  key={index}
+                  className="cursor-pointer text-primary-black hover:text-primary-green transition-all duration-300 ease-out"
+                >
+                  {logo}
+                </span>
+              ))}
             </div>
           </div>
           <ul className="flex flex-col sm:flex-row items-center gap-10 mx-auto lg:mx-0">
