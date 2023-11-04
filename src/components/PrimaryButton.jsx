@@ -1,12 +1,26 @@
 import React from "react";
 
-const PrimaryButton = ({ children, black = true, small = true, className }) => {
+const PrimaryButton = ({
+  children,
+  black = true,
+  small = true,
+  className,
+  authForm = false,
+  onClick = () => {},
+}) => {
   return (
     <button
+      onClick={onClick}
       className={`${className} btn_base ${
-        small ? "px-5 py-[14px]" : "px-5 sm:px-6 py-[14px] sm:py-6"
+        authForm
+          ? "px-5 py-[10px]"
+          : small
+          ? "px-5 py-[14px]"
+          : "px-5 sm:px-6 py-[14px] sm:py-6"
       } primary_btn ${
-        black
+        authForm
+          ? "bg-primary-black hover:bg-primary-green hover:text-white"
+          : black
           ? "bg-primary-black hover:border-primary-black"
           : "bg-primary-green hover:border-primary-green"
       }`}

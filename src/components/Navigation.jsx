@@ -4,15 +4,24 @@ import { TbMenuDeep } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 
 import { Drawer } from "@material-tailwind/react";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavContext } from "../context/NavContext";
+import AuthForm from "./authForm/AuthForm";
 
 const navItems = ["Home", "Cars", "Pricing", "Services", "FAQs", "Contact"];
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); //for drawer state
+
+  // auth form states
+  const [isLoginFormOpen, setIsLoginFormOpen] = useState(false);
+  const toggleIsLoginForm = () => setIsLoginFormOpen(!isLoginFormOpen);
+
+  const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
+  const toggleIsSignUpForm = () => setIsSignUpFormOpen(!isSignUpFormOpen);
+
   const { activeLinkId } = useContext(NavContext);
-  console.log(activeLinkId);
+
   const openDrawer = () => {
     document.body.style.overflowY = "hidden";
     setIsOpen(true);
@@ -20,6 +29,7 @@ const Navigation = () => {
 
   const closeDrawer = () => {
     document.body.style.overflowY = "scroll";
+    document.body.classList.remove("overflow-hidden");
     setIsOpen(false);
   };
 
@@ -72,7 +82,6 @@ const Navigation = () => {
           overlay={false}
           className="px-6 py-12 rounded-r-lg flex flex-col gap-16 drop-shadow-lg "
           open={isOpen}
-          onClose={closeDrawer}
           placement="right"
         >
           <IoClose
@@ -95,12 +104,18 @@ const Navigation = () => {
             ))}
           </ul>
           <div className="w-full h-[2px] bg-primary-green rounded-full p-0.5"></div>
-
+          {/* for small screen */}
           <div className="flex flex-col gap-10">
-            <button className="btn_base text-primary-black hover:text-primary-green">
+            <button
+              className="btn_base text-primary-black hover:text-primary-green"
+              onClick={toggleIsLoginForm}
+            >
               Login
             </button>
-            <button className="btn_base text-primary-black border-2 border-primary-green rounded-full py-2 px-5 hover:bg-primary-green hover:border-transparent hover:text-white">
+            <button
+              className="btn_base text-primary-black border-2 border-primary-green rounded-full py-2 px-5 hover:bg-primary-green hover:border-transparent hover:text-white"
+              onClick={toggleIsSignUpForm}
+            >
               Sign up
             </button>
           </div>
@@ -116,15 +131,38 @@ const Navigation = () => {
           </div>
         </Drawer>
 
+        {/* for large screen login and sign up */}
         <div className="hidden lg:flex items-center gap-[30px]">
-          <button className="btn_base text-primary-black hover:text-primary-green">
+          <button
+            className="btn_base text-primary-black hover:text-primary-green"
+            onClick={toggleIsLoginForm}
+          >
             Login
           </button>
-          <button className="btn_base text-primary-black border-2 border-primary-green rounded-full py-2 px-5 hover:bg-primary-green hover:border-transparent hover:text-white">
+          <button
+            className="btn_base text-primary-black border-2 border-primary-green rounded-full py-2 px-5 hover:bg-primary-green hover:border-transparent hover:text-white"
+            onClick={toggleIsSignUpForm}
+          >
             Sign up
           </button>
         </div>
       </div>
+
+      {isLoginFormOpen ? (
+        <AuthForm
+          isLoginFormOpen={isLoginFormOpen}
+          toggleIsLoginForm={toggleIsLoginForm}
+          toggleIsSignUpForm={toggleIsSignUpForm}
+          isDrawerOpen={isOpen}
+        />
+      ) : (
+        <AuthForm
+          isSignUpFormOpen={isSignUpFormOpen}
+          toggleIsSignUpForm={toggleIsSignUpForm}
+          toggleIsLoginForm={toggleIsLoginForm}
+          isDrawerOpen={isOpen}
+        />
+      )}
     </div>
   );
 };
