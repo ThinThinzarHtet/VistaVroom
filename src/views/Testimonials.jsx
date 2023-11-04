@@ -26,14 +26,14 @@ const testimonialDummyData = [
 ];
 const Testimonials = () => {
   return (
-    <div className="mt-36 py-24 bg-gray-100">
+    <div id="aboutSection" className="mt-36 py-24 bg-gray-100">
       <div className="wrapper flex justify-center items-center">
         <Carousel
           className="rounded-xl pb-12 max-w-[860px]"
           prevArrow={() => null}
           nextArrow={() => null}
           navigation={({ setActiveIndex, activeIndex, length }) => (
-            <div className="absolute bottom-2 left-2/4 z-50 flex -translate-x-2/4 gap-2">
+            <div className="absolute z-auto bottom-2 left-2/4 flex -translate-x-2/4 gap-2">
               {new Array(length).fill("").map((_, i) => (
                 <span
                   key={i}

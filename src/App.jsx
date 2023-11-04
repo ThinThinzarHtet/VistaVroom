@@ -1,5 +1,5 @@
 import Navigation from "./components/Navigation";
-import { useRef } from "react";
+
 import {
   Hero,
   CarsForRental,
@@ -12,9 +12,10 @@ import {
   Services,
   Testimonials,
 } from "./views";
+import NavProvider from "./context/NavContext";
 function App() {
   return (
-    <>
+    <NavProvider>
       <Navigation />
       <Hero />
       <RentingProcess />
@@ -26,7 +27,7 @@ function App() {
       <Posts />
       <Contact />
       <Footer />
-    </>
+    </NavProvider>
   );
 }
 

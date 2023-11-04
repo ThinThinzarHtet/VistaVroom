@@ -5,10 +5,13 @@ import locationIcon from "../assets/location-icon.svg";
 import calendarIcon from "../assets/calendar-icon.svg";
 
 import { LabelInput, PrimaryButton } from "../components";
+import useNav from "../components/hooks/useNav";
 
 const Hero = () => {
+  const homeRef = useNav("Home");
+ 
   return (
-    <div className="bg-white">
+    <div ref={homeRef} id="homeSection" className="bg-white">
       <div className="bg-lightest-gray relative">
         <div className="wrapper min-h-[444px]">
           <h1 className="head_text pt-28 text-center">

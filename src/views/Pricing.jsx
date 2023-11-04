@@ -1,12 +1,13 @@
 import { useState } from "react";
 
 import { PricingCard } from "../components";
+import useNav from "../components/hooks/useNav";
 
 const Pricing = () => {
   const [switchVal, setSwitchVal] = useState(false);
-  console.log("switch", switchVal);
+  const pricingRef = useNav("Pricing");
   return (
-    <div className="mt-36">
+    <div ref={pricingRef} id="pricingSection" className="mt-36">
       <div className="wrapper">
         <h1 className="head_text text-center">
           See our <span className="green_text">pricing plan</span>

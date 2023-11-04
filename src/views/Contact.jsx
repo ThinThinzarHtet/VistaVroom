@@ -1,10 +1,16 @@
 import contactPattern from "../assets/contact-pattern.svg";
 
 import { PrimaryButton } from "../components";
+import useNav from "../components/hooks/useNav";
 
 const Contact = () => {
+  const contactRef = useNav("Contact");
   return (
-    <div className="mt-36 py-28 bg-lightest-gray relative">
+    <div
+      ref={contactRef}
+      id="contactSection"
+      className="mt-36 py-28 bg-lightest-gray relative"
+    >
       <div className="wrapper flex flex-col lg:flex-row justify-start lg:justify-between gap-6 lg:gap-12">
         <h1 className="head_text flex-1 text-center lg:text-start">
           Let's begin with <br />

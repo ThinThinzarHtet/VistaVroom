@@ -5,7 +5,7 @@ import {
   BiLogoTwitter,
   BiLogoYoutube,
 } from "react-icons/bi";
-const navItems = ["Home", "Booking", "About", "Services", "Contact"];
+const navItems = ["Home", "Cars", "Pricing", "Services", "FAQs", "Contact"];
 
 const logoArr = [
   <BiLogoFacebook fontSize={24} />,
@@ -15,6 +15,11 @@ const logoArr = [
   <BiLogoYoutube fontSize={24} />,
 ];
 const Footer = () => {
+  const handleClickNav = (navItem) => {
+    const scrollToId = `${navItem.toLowerCase()}Section`;
+    document.getElementById(scrollToId).scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="py-36">
@@ -48,9 +53,8 @@ const Footer = () => {
             {navItems.map((navItem, index) => (
               <li
                 key={index}
-                className={`${
-                  index === 0 ? "border-primary-green" : "border-transparent"
-                } link`}
+                onClick={() => handleClickNav(navItem)}
+                className={`${"border-transparent"} link`}
               >
                 {navItem}
               </li>

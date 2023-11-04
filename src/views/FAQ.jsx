@@ -5,6 +5,7 @@ import {
 } from "@material-tailwind/react";
 
 import { useState } from "react";
+import useNav from "../components/hooks/useNav";
 
 function Icon({ id, open }) {
   return (
@@ -47,10 +48,10 @@ const faqData = [
 
 const FAQ = () => {
   const [open, setOpen] = useState(1);
-
+  const faqsRef = useNav("FAQs");
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
   return (
-    <div className="mt-36">
+    <div ref={faqsRef} id="faqsSection" className="mt-36">
       <div className="wrapper">
         <h1 className="head_text mb-9 text-center">
           We've got <span className="green_text">answers</span>

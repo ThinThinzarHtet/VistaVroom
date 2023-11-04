@@ -4,10 +4,12 @@ import userIcon from "../assets/user-icon.svg";
 import chatIcon from "../assets/chat-icon.svg";
 
 import { ServiceCard } from "../components";
+import useNav from "../components/hooks/useNav";
 
 const Services = () => {
+  const servicesRef = useNav("Services");
   return (
-    <div className="bg-white mt-36">
+    <div ref={servicesRef} id="servicesSection" className="bg-white mt-36">
       <div className="py-28 bg-lightest-gray">
         <div className="wrapper flex flex-col lg:flex-row justify-start lg:justify-between items-start lg:items-center gap-6 lg:gap-12 mb-9">
           <h1 className="head_text flex-1 text-center lg:text-start">

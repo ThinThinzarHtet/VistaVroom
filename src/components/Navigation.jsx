@@ -4,13 +4,15 @@ import { TbMenuDeep } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 
 import { Drawer } from "@material-tailwind/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { NavContext } from "../context/NavContext";
 
-const navItems = ["Home", "Booking", "About", "Services", "Contact"];
+const navItems = ["Home", "Cars", "Pricing", "Services", "FAQs", "Contact"];
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { activeLinkId } = useContext(NavContext);
+  console.log(activeLinkId);
   const openDrawer = () => {
     document.body.style.overflowY = "hidden";
     setIsOpen(true);
@@ -21,11 +23,21 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  // sticky top-0 z-20 bg-white
+  const handleClickLogo = () => {
+    document
+      .getElementById("homeSection")
+      .scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleClickNav = (navItem) => {
+    const scrollToId = `${navItem.toLowerCase()}Section`;
+    document.getElementById(scrollToId).scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="sticky top-0 z-20 bg-white">
       <div className="wrapper flex justify-between items-center py-5">
-        <p>
+        <p onClick={handleClickLogo} className="cursor-pointer">
           <span className="text-primary-green logo_text uppercase">Vista</span>
           <span className="text-primary-black logo_text uppercase">Vroom</span>
         </p>
@@ -34,8 +46,11 @@ const Navigation = () => {
             {navItems.map((navItem, index) => (
               <li
                 key={index}
+                onClick={() => handleClickNav(navItem)}
                 className={`${
-                  index === 0 ? "border-primary-green" : "border-transparent"
+                  activeLinkId === navItem
+                    ? "border-primary-green"
+                    : "border-transparent"
                 } link`}
               >
                 {navItem}
@@ -68,8 +83,11 @@ const Navigation = () => {
             {navItems.map((navItem, index) => (
               <li
                 key={index}
+                onClick={() => handleClickNav(navItem)}
                 className={`${
-                  index === 0 ? "border-primary-green" : "border-transparent"
+                  activeLinkId === navItem
+                    ? "border-primary-green"
+                    : "border-transparent"
                 } link`}
               >
                 {navItem}
