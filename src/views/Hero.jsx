@@ -3,7 +3,6 @@ import heroPatternLeft from "../assets/hero-pattern-left.svg";
 import busIcon from "../assets/bus-icon.svg";
 import locationIcon from "../assets/location-icon.svg";
 import calendarIcon from "../assets/calendar-icon.svg";
-import Select from "react-select";
 
 import { LabelInput, PrimaryButton } from "../components";
 import useNav from "../components/hooks/useNav";
