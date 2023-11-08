@@ -3,13 +3,22 @@ import heroPatternLeft from "../assets/hero-pattern-left.svg";
 import busIcon from "../assets/bus-icon.svg";
 import locationIcon from "../assets/location-icon.svg";
 import calendarIcon from "../assets/calendar-icon.svg";
+import Select from "react-select";
 
 import { LabelInput, PrimaryButton } from "../components";
 import useNav from "../components/hooks/useNav";
 
+const options = [
+  { value: "BMW X3", label: "BMW X3" },
+  { value: "BMW M2", label: "BMW M2" },
+  { value: "Tesla", label: "Tesla" },
+  { value: "Ferrari", label: "Ferrari" },
+  { value: "Sports car", label: "Sports car" },
+];
+
 const Hero = () => {
   const homeRef = useNav("Home");
- 
+
   return (
     <div ref={homeRef} id="homeSection" className="bg-white">
       <div className="bg-lightest-gray relative">
@@ -39,7 +48,10 @@ const Hero = () => {
               label="Vehicle Type"
               placeholder="Select Car Group"
               icon={busIcon}
+              type="select"
+              options={options}
             />
+
             <LabelInput
               label="Picking Up Location"
               placeholder="Airport or anywhere"
@@ -49,11 +61,13 @@ const Hero = () => {
               label="Picking Up Date"
               placeholder="10/24/2023"
               icon={calendarIcon}
+              type="date"
             />
             <LabelInput
               label="Returning Date"
               placeholder="11/24/2023"
               icon={calendarIcon}
+              type="date"
             />
           </div>
           <PrimaryButton

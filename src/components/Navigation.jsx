@@ -4,7 +4,7 @@ import { TbMenuDeep } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 
 import { Drawer } from "@material-tailwind/react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { NavContext } from "../context/NavContext";
 import AuthForm from "./authForm/AuthForm";
 
